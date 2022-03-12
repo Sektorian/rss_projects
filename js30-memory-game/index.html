@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Memory-kombat</title>
+</head>
+<body>
+
+    <main>
+        <img src="./assets/img/background_01.jpg" alt="background" class="background">
+
+        <div class="select">
+            <div class="buttons-select">
+                <button class="button-easy">EASY</button>
+                <button class="button-normal">NORMAL</button>
+                <button class="button-hard">HARD</button>
+                <button class="button-test">TEST</button>
+            </div>
+        </div>
+
+        <div class="toolbar">
+            <div class="score">
+                <span class="score-title">SCORE</span>
+                <span class="score-count">0</span>
+            </div>
+            <button class="button-refresh">REFRESH</button>
+        </div>
+
+        <div class="container" id="cardContainer"></div>
+
+        <div class="congratulations">
+            <div class="cong-mess">
+                <p style="font-size: 6vh; font-weight: 700; color: white;">Congratulation!</p>
+                <p style="font-size: 4vh; font-weight: 500; color: white;">Your SCORE</p>
+                <p class="your-score">0</p>
+                <p style="font-size: 4vh; font-weight: 500; color: white;">Enter your name:</p>
+                <input type="text" class="input-name" placeholder="Nickname">
+            </div>
+        </div>
+
+        <div class="table-result">
+            <p class="table-result-title1"></p>
+            <div class="tables">
+                <div style="margin: 0 5vw;">
+                    <p class="leader-board-title">Leader board</p>
+                    <table class="leader-board">
+                        <thead class="table-head">
+                            <tr>
+                                <th>POS</th><th>NAME</th><th>SCORE</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body" id="LeaderTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div style="margin: 0 5vw;">
+                    <p class="game-board-title">Last games</p>
+                    <table class="game-board">
+                        <thead class="table-head">
+                            <tr>
+                                <th>NAME</th><th>SCORE</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body" id="GameTableBody"></tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="buttons-table-result">
+                <button class="button-clear">CLEAR</button>
+                <button class="button-restart">RESTART GAME</button>
+            </div>
+
+        </div>
+        
+    </main>
+
+
+    <footer>
+        <div class="footer">
+            <div class="data">
+                <span>&#xA9; 2022</span>
+                <a href="http://github.com/Sektorian"><img class="imgGit" src="./assets/img/GitHub.png" alt="GitHub logo"></a>
+            </div>
+            <div>
+                <a href="https://rs.school/js-stage0/"><img class="imgRsSchool" src="./assets/svg/rs_school_js.svg" alt="rs_school logo"></a>
+            </div>
+            <div class="glass"></div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

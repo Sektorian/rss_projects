@@ -1,0 +1,336 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    background: black;
+    width: 100%;
+}
+
+/* MAIN */
+
+main {
+    display: flex;
+    height: calc(100vh - 90px);
+    top: 0;
+}
+
+.background {
+    position: fixed;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(3px);
+}
+
+.select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.8);
+}
+.buttons-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40vh;
+}
+.button-easy, .button-normal, .button-hard, .button-test {
+    width: 20vw;
+    height: 60px;
+    padding: 10px;
+    margin: 10px 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 0.3s;
+}
+.button-easy:hover, .button-normal:hover, .button-hard:hover, .button-test:hover {
+    box-shadow: 0 0 50px -10px red;;
+    color: rgb(176, 0, 0);;
+    transform: scale(1.1);
+    
+}
+.button-easy:active, .button-normal:active, .button-hard:active, .button-test:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 15px 5px red;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column wrap;
+    width: 80vw;
+    height: 100%;
+    margin: auto;
+    perspective: 1000px;
+}
+
+.card {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    box-shadow: 0 0 15px 10px rgba(10, 10, 10, 0.8);
+    border-radius: 10px;
+    background: black;
+    height: calc(100% / 3 - 20px);
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+
+}
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+    box-shadow: 0 0 20px 0 rgba(176, 0, 0);
+}
+.card:active {
+    transform: scale(0.95);
+}
+.card.flip {
+    transform: rotateY(180deg);
+    transition: 0.5s;
+}
+
+.up-face-card, .down-face-card  {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+}
+.up-face-card {
+    transform: rotateY(180deg);
+}
+
+.toolbar{
+    display: flex;
+    flex-direction: column;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.score-title {
+    font-size: 24px;
+    color: white;
+}
+
+.score-count {
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+}
+
+.button-refresh, .button-clear, .button-restart {
+    height: 60px;
+    padding: 10px;
+    margin: 10px 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 0.3s;
+}
+.button-refresh:hover, .button-clear:hover, .button-restart:hover {
+    box-shadow: 0 0 10px 2px white;
+}
+.button-refresh:active, .button-clear:active, .button-restart:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 15px 5px white;
+}
+
+.congratulations {
+    display: none; /*flex*/
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.8);
+    
+}
+.cong-mess {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+}
+
+.your-score {
+    font-size: 10vh;
+    color: white;
+}
+
+.input-name {
+    background: rgba(50, 50, 50, 0.5);
+    width: 500px;
+    height: auto;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    font-size: 5vh;
+    text-align: center;
+    transition: 0.5s;
+}
+
+
+.input-name:hover {
+    transition: 0.5s;
+    filter: drop-shadow(0 0 5px white);
+    background: rgb(50, 50, 50);
+
+}
+.input-name:focus {
+    background: rgba(0, 0, 0, 1);
+    outline: none; /* Убираем обводку при фокусе input */
+}
+::placeholder {
+    color: rgb(50, 50, 50);
+}
+
+.table-result {
+    display: none; /*flex*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.8);
+}
+.table-result-title1 {
+    font-size: 6vh;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6vh;
+    text-shadow: 0 0 25px red;
+}
+.tables {
+    display: flex;
+
+}
+
+.leader-board, .game-board {
+    width: 500px;
+    min-height: 200px;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 5vh;
+    background: rgba(255, 255, 255, 0.1);
+}
+.leader-board-title, .game-board-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.table-head {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    border-bottom: 2px solid white;
+}
+
+.table-body {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    vertical-align: top;
+}
+
+.buttons-table-result {
+    display: flex;
+    justify-content: space-between;
+}
+.button-clear, .button-restart {
+    width: 200px;
+    margin: 0 5vw;
+}
+
+ /* FOOTER */
+
+ .glass {
+    position: absolute;
+    z-index: 1;
+    left: auto; right: auto;
+    bottom: 38px;
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
+}
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    left: 0; right: 0;
+    bottom: 0;
+    box-shadow: 5px 0 20px 10px black;
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.9);
+}
+.data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+.imgGit {
+    width: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.imgGit:hover {
+    box-shadow: 0 0 10px 0px white;
+}
+.imgRsSchool {
+    filter: invert(1);
+    width: 100px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.imgRsSchool:hover {
+    filter:drop-shadow(0 0 10px black) invert(1);
+}
